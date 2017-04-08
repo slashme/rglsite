@@ -8,11 +8,11 @@
 <script src="lib/rglwidgetClass-2/rglClass.src.js"></script>
 <script src="lib/CanvasMatrix4-2009/CanvasMatrix.src.js"></script>
 <script src="lib/rglWebGL-binding-0.1.1434/rglWebGL.js"></script>
-
+<link rel="stylesheet" type="text/css" href="rglsitestyle.css">
 </head>
-<body style="background-color:white; font-family:Helvetica, sans-serif;">
+<body>
 <h1>Reddit post karma trajectories</h1>
-<h2>Results from four subreddits</h2>
+<h2>Results from five subreddits</h2>
 I am collecting data on the progress of posts through the following subreddits:
 <ul>
   <li>The_Donald</li>
@@ -21,8 +21,17 @@ I am collecting data on the progress of posts through the following subreddits:
   <li>IAmA</li>
   <li>dataisbeautiful</li>
 </ul>
-<p>To do this, I wrote <a href="https://github.com/slashme/redditlog/blob/master/monitor.py">a python script</a> which reads the top 100 posts in each of these subreddits every two minutes and dumps the results into a sqlite database.</p>
-<p>To visualise the results, I then wrote an <a href="https://www.r-project.org/about.html">R</a> script which can select a sample of these posts and display them in three dimensions - for example by post age in days, post score (net "karma" - how many times more it's been upvoted than downvoted) and number of comments. That's all very well, but you can only really get a feeling for the data if you can rotate the 3D plot. Fortunately, R also comes with a library called rglwidget (now part of the <a href="https://cran.r-project.org/web/packages/rgl/vignettes/rgl.html">RGL</a> library) which can render a 3D plot as a Javascript object.</p>
-<p>The 3D objects are a bit heavy in terms of RAM requirements, so I'm not putting them all on the same page.</p>
+
+<div class="bodytext">
+  <p>To do this, I wrote <a href="https://github.com/slashme/redditlog/blob/master/monitor.py">a python script</a> which reads the top 100 posts in each of these subreddits every two minutes and dumps the results into a sqlite database.</p>
+  <p>To visualise the results, I then wrote an <a href="https://www.r-project.org/about.html">R</a> script which can select a sample of these posts and display them in three dimensions - for example by post age in days, post score (net "karma" - how many times more it's been upvoted than downvoted) and number of comments. That's all very well, but you can only really get a feeling for the data if you can rotate the 3D plot. Fortunately, R also comes with a library called rglwidget (now part of the <a href="https://cran.r-project.org/web/packages/rgl/vignettes/rgl.html">RGL</a> library) which can render a 3D plot as a Javascript object.</p>
+  <p>The 3D objects are a bit heavy in terms of RAM requirements, so I'm not putting them all on the same page.</p>
+</div>
+
+<h2>The graphs</h2>
+<h3>All the subreddits in one graph</h3>
+<div class="bodytext">
+<p><a href="allcurves.html">This is an overview chart.</a> I've plotted all five of the subreddits on one 3D canvas, showing the relationship between the age of the post in days, the rank or position in its subreddit, and the net karma score. You can see that posts on The_Donald don't hang around long before being pushed out by new posts. GoneWild and AskReddit posts have similar trajectories to each other, lasting about twice as long as T_D posts. IAmA and dataisbeautiful, on the other hand, have much longer-lived posts: there's less of a constant stream of new material, so a popular post can be in the top 100 for about 5 days on dataisbeautiful, or up to 8 days for IAmA.</p> 
+</div>
 </body>
 </html>
