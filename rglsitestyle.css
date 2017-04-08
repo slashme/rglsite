@@ -6,3 +6,8 @@ body {
 div.bodytext {
   max-width:40em;
 }
+
+img.thumb {
+  width:19em;
+  height19em;
+}
