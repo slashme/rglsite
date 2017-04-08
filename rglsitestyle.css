@@ -1,0 +1,8 @@
+body {
+  background-color:white;
+  font-family:Helvetica, sans-serif;
+}
+
+div.bodytext {
+  max-width:40em;
+}
